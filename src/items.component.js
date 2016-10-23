@@ -3,7 +3,7 @@
 
   angular.module('MenuApp')
     .component('categoryItems', {
-        templateUrl : 'src/category-items.template.html'
+        templateUrl : 'src/category.items.template.html'
     });
 
 })();

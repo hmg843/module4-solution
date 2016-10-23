@@ -27,17 +27,15 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
               })
               .catch(function(error) {
                 console.log(error);
-              })
+              });
         }]
       }
-    });
-
-    /*
-    .state('categories.items', {
-      url: '/items',
-      templateUrl: 'src/category.items.html'
+    })
+    .state('categories.categoryItems', {
+      url: '/categoryItems/{categoryName}',
+      templateUrl: 'src/category.items.html',
       controller: 'CategoryItemController as catItemCtrl',
-    });*/
+    });
 }
 
 })();
