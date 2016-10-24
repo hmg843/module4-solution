@@ -31,10 +31,21 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
         }]
       }
     })
-    .state('categories.categoryItems', {
+    .state('categoryItems', {
       url: '/categoryItems/{categoryName}',
       templateUrl: 'src/category.items.html',
       controller: 'CategoryItemController as catItemCtrl',
+      resolve: {
+        categoryItems: ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService) {
+            return MenuDataService.getItemsForCategory($stateParams.categoryName)
+              .then(function(response) {
+                  return response.data.menu_items;
+              })
+              .catch(function(error) {
+                console.log(error);
+              });
+        }]
+      }
     });
 }
 

@@ -2,12 +2,11 @@
 'use strict';
 
 angular.module('MenuApp')
-.controller('CategoryItemController', CategoryItemController);
+  .controller('CategoryItemController', CategoryItemController);
 
-CategoryItemController.$inject = ['$stateParams', 'categories'];
-function CategoryItemController($stateParams, categories) {
+CategoryItemController.$inject = ['categoryItems'];
+function CategoryItemController(categoryItems) {
   var catItemCtrl = this;
-  catItemCtrl.categoryItems = categories[$stateParams.categoryName];
+  catItemCtrl.categoryItems = categoryItems;
 }
-
 })();
